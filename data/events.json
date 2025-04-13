@@ -1,0 +1,29 @@
+[
+    {
+        "id": 2,
+        "title": "AI Workshop",
+        "date": "2025-03-31",
+        "location": "Lab 3",
+        "description": "Hands-on AI learning.",
+        "status": "Upcoming",
+        "participants": 60
+    },
+    {
+        "id": 3,
+        "title": "wewd",
+        "date": "2025-03-28",
+        "location": "ewdwd",
+        "description": "xaXas",
+        "status": "Upcoming",
+        "participants": 45
+    },
+    {
+        "id": 4,
+        "title": "uybuhb",
+        "date": "2025-03-26",
+        "location": "i8ygu",
+        "description": "ytg7t",
+        "status": "Upcoming",
+        "participants": 50
+    }
+]

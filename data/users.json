@@ -1,0 +1,14 @@
+[
+    {
+        "username": "xyz",
+        "password": "$2y$10$mb241h.ujn9c04yPKc8KzekzvJOxM7rewrKuEtmVZ7uRvK31JoFo6",
+        "role": "organizer",
+        "email": "xyz@gmail.com"
+    },
+    {
+        "username": "abc",
+        "password": "$2y$10$jS7P2TA2TcUKlGWfSM7.k.yb6uaUaKnSG82NJ.t7U6Q5u5YKeoGGm",
+        "role": "attendee",
+        "email": "abc@gmail.com"
+    }
+]

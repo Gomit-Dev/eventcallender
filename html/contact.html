@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init("CwljI4OwXmp35_7-d"); //   Public Key
+        })();
+    </script>
+</head>
+
+<body class="bg-gray-900 text-white font-sans">
+
+    <section class="flex items-center justify-center min-h-screen bg-cover bg-center"
+        style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1740&q=80');">
+        <div class="bg-black bg-opacity-70 w-full max-w-6xl rounded-lg shadow-lg p-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <!-- Left side contact info -->
+            <div class="flex flex-col justify-center space-y-8">
+                <div>
+                    <h2 class="text-4xl font-bold mb-4">Contact Us</h2>
+                    <p class="text-gray-300 text-sm">
+                        We are here to assist you with any inquiries or issues you may have. Please feel free to reach out to us using the contact information below or by filling out the form.
+                    </p>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <div class="bg-indigo-600 p-3 rounded-full">
+                        <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3 5h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.35 2.7a1 1 0 00.9 1.5h12.2a1 1 0 00.9-1.5L17 13M9 21h6"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg">Address</h3>
+                        <p class="text-gray-400 text-sm">4671 Sugar Camp Road,<br> Owatonna, Minnesota, 55060</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <div class="bg-indigo-600 p-3 rounded-full">
+                        <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3 5h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.35 2.7a1 1 0 00.9 1.5h12.2a1 1 0 00.9-1.5L17 13M9 21h6"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg">Phone</h3>
+                        <p class="text-gray-400 text-sm">+91 7500-520-659</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <div class="bg-indigo-600 p-3 rounded-full">
+                        <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16 12H8m0 0l4-4m-4 4l4 4"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg">Email</h3>
+                        <p class="text-gray-400 text-sm">sahgomit20@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right side form -->
+            <div class="bg-white rounded-full p-12 flex flex-col justify-center w-full h-auto">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Send Message</h3>
+                <form id="contact-form" class="space-y-5">
+                    <div>
+                        <input type="text" id="name" name="name" placeholder="Full Name" required
+                            class="w-full px-4 py-3 border-b-2 border-black focus:outline-none focus:border-indigo-600 text-gray-800">
+                    </div>
+                    <div>
+                        <input type="email" id="email" name="email" placeholder="Email" required
+                            class="w-full px-4 py-3 border-b-2 border-black focus:outline-none focus:border-indigo-600 text-gray-800">
+                    </div>
+                    <div>
+                        <textarea id="message" name="message" rows="4" placeholder="Type your Message..." required
+                            class="w-full px-4 py-3 border-b-2 border-black focus:outline-none focus:border-indigo-600 text-gray-800"></textarea>
+                    </div>
+                    <div class="flex justify-center">
+                        <button type="submit"
+                            class="text-black text-center w-3/4 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-full transition duration-300">
+                            Send
+                        </button>
+                    </div>
+                </form>
+                <p id="status-message" class="text-center mt-4 text-sm"></p>
+            </div>
+
+
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                message: message
+            };
+
+            emailjs.send('service_wuebrpp', 'template_mrxtprn', templateParams)
+                .then(function (response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    const statusMessage = document.getElementById('status-message');
+                    statusMessage.textContent = "✅ Message sent successfully!";
+                    statusMessage.classList.remove("text-red-500");
+                    statusMessage.classList.add("text-green-500");
+                    document.getElementById('contact-form').reset();
+                }, function (error) {
+                    console.log('FAILED...', error);
+                    const statusMessage = document.getElementById('status-message');
+                    statusMessage.textContent = "❌ Failed to send message. Please try again.";
+                    statusMessage.classList.remove("text-green-500");
+                    statusMessage.classList.add("text-red-500");
+                });
+        });
+    </script>
+
+</body>
+
+</html>

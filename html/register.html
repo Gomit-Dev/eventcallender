@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fade-in 0.9s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-[url('img/login.jpg')] bg-cover bg-center">
+
+  <div class="animate-fade-in bg-gradient-to-br from-green-500 to-teal-950 border-2 border-green-950 p-8 rounded-tl-full rounded-br-full shadow-xl w-[90%] max-w-md relative">
+
+    <h2 class="absolute top-8 right-8 text-blue-950 text-5xl font-serif font-semibold pt-8 ">
+      Register
+    </h2>
+
+    <form action="auth.php" method="POST" class="mt-24 space-y-5">
+      <input type="hidden" name="action" value="register" />
+
+      <!-- Full Name -->
+      <input 
+        type="text" 
+        name="fullname" 
+        placeholder="Full Name" 
+        required 
+        class="w-full px-4 py-3 border border-gray-300 rounded-full bg-white text-gray-800 placeholder-gray-500 shadow-sm focus:ring-2 focus:ring-green-400 focus:outline-none transition duration-300" 
+      />
+
+      <!-- Username -->
+      <input 
+        type="text" 
+        name="username" 
+        placeholder="Username" 
+        required 
+        maxlength="11"
+        class="w-full px-4 py-3 border border-gray-300 rounded-full bg-white text-gray-800 placeholder-gray-500 shadow-sm focus:ring-2 focus:ring-green-400 focus:outline-none transition duration-300" 
+      />
+
+      <!-- Email -->
+      <input 
+        type="email" 
+        name="email" 
+        placeholder="Email" 
+        required 
+        class="w-full px-4 py-3 border border-gray-300 rounded-full bg-white text-gray-800 placeholder-gray-500 shadow-sm focus:ring-2 focus:ring-green-400 focus:outline-none transition duration-300" 
+      />
+
+      <!-- Password -->
+      <input 
+        type="password" 
+        name="password" 
+        placeholder="Password" 
+        required 
+        class="w-full px-4 py-3 border border-gray-300 rounded-full bg-white text-gray-800 placeholder-gray-500 shadow-sm focus:ring-2 focus:ring-green-400 focus:outline-none transition duration-300" 
+      />
+
+      <!-- Confirm Password -->
+      <input 
+        type="password" 
+        name="confirm_password" 
+        placeholder="Confirm Password" 
+        required 
+        class="w-full px-4 py-3 border border-gray-300 rounded-full bg-white text-gray-800 placeholder-gray-500 shadow-sm focus:ring-2 focus:ring-green-400 focus:outline-none transition duration-300" 
+      />
+
+      <!-- Account Type (Organizer / Attendee) -->
+      <select 
+        name="account_type" 
+        required 
+        class="w-full px-4 py-3 border border-gray-300 rounded-full bg-white text-gray-800 shadow-sm focus:ring-2 focus:ring-green-400 focus:outline-none transition duration-300"
+      >
+        <option value="">Select Account Type</option>
+        <option value="organizer">Organizer</option>
+        <option value="attendee">Attendee</option>
+      </select>
+
+      <!-- Register Button -->
+      <button 
+        type="submit" 
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-full shadow-md transition duration-300"
+      >
+        Register
+      </button>
+
+      <!-- Divider -->
+      <div class="flex items-center my-4">
+        <div class="w-12 border-t border-gray-300"></div>
+        <span class="mx-3 text-green-950 text-sm">OR</span>
+        <div class="w-12 border-t border-gray-300"></div>
+      </div>
+
+      <!-- Login Link -->
+      <p class="text-white text-sm">
+        Already have an account? 
+        <a href="login.html" class="text-md text-teal-300 hover:underline font-medium">
+          Login
+        </a>
+      </p>
+    </form>
+  </div>
+</body>
+</html>
